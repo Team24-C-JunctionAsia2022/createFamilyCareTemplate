@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Mx.${name} Family Care Report</title>
+    </head>
+    <style>
+        section {
+            background-color: #F8F8F8;
+            border-radius: 12px;
+            padding: 12px;
+            box-shadow: 4px 4px 6px 2px #00000014;
+            margin-bottom: 20px;
+        }
+
+        ::-moz-progress-bar {
+            background-color: #0340F3;
+            border-radius: 100px;
+        }
+
+        ::-webkit-progress-bar {
+            background-color: #0340F3;
+            border-radius: 100px;
+        }
+        
+        #profileDetail {
+            margin-bottom: 32px;
+        }
+
+        #roomNumber{
+            border-radius: 100px;
+            background: #0340F3;
+            color: #FFFFFF;
+            font-size: 10px;
+            padding: 2px 6px 2px 6px;
+        }
+
+        .duration {
+            background: #0340F3;
+            color: #FFFFFF;
+            text-align: center;
+            border-radius: 12px;
+            padding: 10px 28px 10px 28px;
+        }
+
+        #stat {
+            margin-top: 32px;
+        }
+
+        #healthContainer {
+            display: flex;
+            overflow: scroll
+        }
+
+        #healthContainer div {
+            margin-right: 22px;
+        }
+
+        #healthContainer div p {
+            font-size: 11px;
+        }
+
+        .chip {
+            border-radius: 100px;
+            background: #0340F3;
+            color: #FFFFFF;
+            padding: 3px 8px 3px 8px;
+        }
+
+        .healthValue {
+            color: #0340F3;
+            font-size: 20px;
+            font-weight: bolder;
+            text-align: center;
+        }
+        
+        .smallText {
+            font-size: 13px;
+        }
+
+        #profile img {
+            margin: 1em;
+        }
+        #currentStatus {
+            overflow: scroll;
+        }
+        #food {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        #feelingPastContainer {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+        }
+    </style>
+    <body>
+        <header id="profile">
+            <img id="profileImage" src="${profileImageSourceURL}" alt="Mx.${name} picture">
+            <section id="profileDetail">
+                <h2><span class="name">${name}</span> <span id="roomNumber" class="chip">${room}</span></h2>
+                <p>Age: <span id="age">${age}</span></p>
+                <p>Gender: <span id="age">${gender}</span></p>
+                <p>Blood Type: <span id="bloodType">${bloodType}</span></p>
+                <p>Guardian: <span id="guardianName">${guardianName}</span> (<span id="gardianPhone">${gardianPhone}</span>)</p>
+            </section>
+        </header>
+        <main>
+            <h2 class="duration" id="date">August 21, 2022</h2>
+            <section id="feeling">
+                <h3>Condition of feeling</h3>
+                <div>
+                    <label id="feelOne" for="feelOnePercent"></label>
+                    <progress id="feelOnePercent" max="100" value="0">0</progress>    
+                </div>
+                <div>
+                    <label id="feelTwo" for="feelTwoPercent"></label>
+                    <progress id="feelTwoPercent" max="100" value="0">0</progress>    
+                </div>
+                <div>
+                    <label id="feelThree" for="feelThreePercent"></label>
+                    <progress id="feelThreePercent" max="100" value="0">0</progress>    
+                </div>
+                <div>
+                    <label id="feelFour" for="feelFourPercent"></label>
+                    <progress id="feelFourPercent" max="100" value="0">0</progress>    
+                </div>
+                <div>
+                    <label id="feelFive" for="feelFivePercent"></label>
+                    <progress id="feelFivePercent" max="100" value="0">0</progress>    
+                </div>
+            </section>
+            <section id="health">
+                <h3>Health Condition</h3>
+                <div id="healthContainer">
+                    <div id="bloodPressure">
+                        <p class="chip">Blood Pressure</p>
+                        <p id="bloodPressureCurrent" class="healthValue"><span id="bloodValue" ><span class="smallText">mmhg</span></p>
+                    </div>
+                    <div id="bodyTemporature">
+                        <p class="chip">Body Temperature</p>
+                        <p id="bodyTemporatureCurrent" class="healthValue"><span id="temperatureValue"></span><span class="smallText">°C</span></p>
+                    </div>
+                    <div id="weight">
+                        <p class="chip">Weight</p>
+                        <p id="weightCurrent" class="healthValue"><span id="weightValue"></span><span class="smallText">kg</span></p>
+                    </div>    
+                </div>
+            </section>
+            <section id="extraComment">
+                <h3>Additional note</h3>
+                <p id="commentArea">${extraComment}</p>
+            </section>
+
+            <h2 class="duration" id="stat">Last 7 days</h2>
+            <section id="feelingPast">
+                <h3>Condition of feeling</h3>
+                <div id="feelingPastContainer">
+                    <div>
+                        <p class="emoji" id="sevenE"></p>
+                        <p class="smallText">Mon</p>
+                    </div>
+                    <div>
+                        <p class="emoji" id="sixE"></p>
+                        <p class="smallText">Tue</p>
+                    </div>
+                    <div>
+                        <p class="emoji" id="fiveE"></p>
+                        <p class="smallText">Wed</p>
+                    </div>
+                    <div>
+                        <p class="emoji" id="fourE"></p>
+                        <p class="smallText">Thu</p>
+                    </div>
+                    <div>
+                        <p class="emoji" id="threeE"></p>
+                        <p class="smallText">Fri</p>
+                    </div>
+                    <div>
+                        <p class="emoji" id="twoE"></p>
+                        <p class="smallText">Sat</p>
+                    </div>
+                    <div>
+                        <p class="emoji" id="oneE"></p>
+                        <p class="smallText">Sun</p>
+                    </div>
+                </div>
+            </section>
+            <section id="healthStat">
+                <h3>Health Condition</h3>
+                <div id="healthStatContainerFirst">
+                    <div id="bloodPressureStat">
+                        <p class="chip">Blood Pressure</p>
+                        
+                    </div>
+                    <div id="bodyTemporatureStat">
+                        <p class="chip">Body Temperature</p>
+                        
+                    </div>
+                </div>
+                <div id="healthStatContainerSecond">
+                    <div id="weightStat">
+                        <p class="chip">Weight</p>
+
+                    </div>    
+                </div>
+            </section>
+        </main>
+    </body>
+    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+</html>
