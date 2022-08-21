@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Mx.${name} Family Care Report</title>
+        <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
     </head>
     <style>
         section {
@@ -92,6 +93,21 @@
             display: grid;
             grid-template-columns: repeat(7, 1fr);
         }
+        #healthStatContainerFirst {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        #bloodPressureStat {
+            padding-right: 10px;
+            
+        }
+        #bodyTemporatureStat {
+            padding-left: 10px;
+        }
+
+        #bloodPressureStat {
+            border-right: 2px solid #E4E4E4;
+        }
     </style>
     <body>
         <header id="profile">
@@ -109,24 +125,20 @@
             <section id="feeling">
                 <h3>Condition of feeling</h3>
                 <div>
-                    <label id="feelOne" for="feelOnePercent"></label>
-                    <progress id="feelOnePercent" max="100" value="0">0</progress>    
+                    <label id="feelOne" for="feelOnePercent">😄 Hapiness</label>
+                    <progress id="feelOnePercent" max="100" value="80">0</progress>    
                 </div>
                 <div>
-                    <label id="feelTwo" for="feelTwoPercent"></label>
-                    <progress id="feelTwoPercent" max="100" value="0">0</progress>    
+                    <label id="feelTwo" for="feelTwoPercent">😐 Neutral</label>
+                    <progress id="feelTwoPercent" max="100" value="50">0</progress>    
                 </div>
                 <div>
-                    <label id="feelThree" for="feelThreePercent"></label>
-                    <progress id="feelThreePercent" max="100" value="0">0</progress>    
+                    <label id="feelThree" for="feelThreePercent">😢 Sadness</label>
+                    <progress id="feelThreePercent" max="100" value="30">0</progress>    
                 </div>
                 <div>
-                    <label id="feelFour" for="feelFourPercent"></label>
-                    <progress id="feelFourPercent" max="100" value="0">0</progress>    
-                </div>
-                <div>
-                    <label id="feelFive" for="feelFivePercent"></label>
-                    <progress id="feelFivePercent" max="100" value="0">0</progress>    
+                    <label id="feelFour" for="feelFourPercent">😮 Surprise</label>
+                    <progress id="feelFourPercent" max="100" value="10">0</progress>    
                 </div>
             </section>
             <section id="health">
@@ -156,31 +168,31 @@
                 <h3>Condition of feeling</h3>
                 <div id="feelingPastContainer">
                     <div>
-                        <p class="emoji" id="sevenE"></p>
+                        <p class="emoji" id="sevenE">😄</p>
                         <p class="smallText">Mon</p>
                     </div>
                     <div>
-                        <p class="emoji" id="sixE"></p>
+                        <p class="emoji" id="sixE">😐</p>
                         <p class="smallText">Tue</p>
                     </div>
                     <div>
-                        <p class="emoji" id="fiveE"></p>
+                        <p class="emoji" id="fiveE">😄</p>
                         <p class="smallText">Wed</p>
                     </div>
                     <div>
-                        <p class="emoji" id="fourE"></p>
+                        <p class="emoji" id="fourE">😢</p>
                         <p class="smallText">Thu</p>
                     </div>
                     <div>
-                        <p class="emoji" id="threeE"></p>
+                        <p class="emoji" id="threeE">😡</p>
                         <p class="smallText">Fri</p>
                     </div>
                     <div>
-                        <p class="emoji" id="twoE"></p>
+                        <p class="emoji" id="twoE">😱</p>
                         <p class="smallText">Sat</p>
                     </div>
                     <div>
-                        <p class="emoji" id="oneE"></p>
+                        <p class="emoji" id="oneE">😄</p>
                         <p class="smallText">Sun</p>
                     </div>
                 </div>
@@ -190,21 +202,27 @@
                 <div id="healthStatContainerFirst">
                     <div id="bloodPressureStat">
                         <p class="chip">Blood Pressure</p>
-                        
+                        <div>
+                            <img id="bloodStatChart" />
+                        </div>
                     </div>
                     <div id="bodyTemporatureStat">
                         <p class="chip">Body Temperature</p>
-                        
+                        <div>
+                            <img id="bodyTemperatureStatChart" />
+                        </div>
                     </div>
                 </div>
                 <div id="healthStatContainerSecond">
                     <div id="weightStat">
                         <p class="chip">Weight</p>
-
+                        <img id="weightStatChart" />
                     </div>    
                 </div>
             </section>
         </main>
     </body>
-    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+    <script>
+        twemoji.parse(document.body);
+    </script>
 </html>
